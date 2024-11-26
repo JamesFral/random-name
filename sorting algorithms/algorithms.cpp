@@ -47,3 +47,39 @@ void quickSort(int arr[], int low, int high) {
     }
     
 }
+
+void merge(int arr[], int left, int middle, int right) {
+    int x = middle - left + 1;
+    int y = right - middle;
+    int left2[] = {};
+    int right2[] = {};
+    for (int i = 0; i < x; i++) {
+        left2[i] = arr[left + i];
+    }
+    for (int j = 0; j < y; j++) {
+        right2[j] = arr[middle + 1 + j];
+    }
+    int i = 0; int j = 0; int k = left;
+
+    while (i < x and j < y) {
+        if (left2[i] <= right2[j]) {
+            arr[k] = left2[i];
+            i += 1;
+        }
+        else {
+            arr[k] = right2[j];
+            j += 1;
+        }
+    }
+
+    while (i < x) {
+        arr[k] = left2[i];
+        i += 1;
+        k += 1;
+    }
+    while (j < y) {
+        arr[k] = right2[j];
+        j += 1;
+        k += 1;
+    }
+}

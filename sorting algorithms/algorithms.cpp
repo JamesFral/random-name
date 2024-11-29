@@ -70,7 +70,7 @@ void merge(int arr[], int left, int middle, int right) {
     //     std::cout << right2[c] <<'\n';
     // }
     // std::cout << '\n';
-    
+
      int i = 0; int j = 0; int k = left;
 
     while (i < x and j < y) {
@@ -105,4 +105,16 @@ void mergeSort(int arr[], int left, int right) {
    mergeSort(arr, left, middle);
    mergeSort(arr, middle+1, right);
    merge(arr, left, middle, right);
+}
+
+void insertionSort(int arr[],int size) {
+    for (int i = 0; i <= size; i++){
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 and arr[j] > key) {
+            arr[j+1] = arr[j];
+            j -= 1;
+        }
+        arr[j+1] = key;
+    }
 }

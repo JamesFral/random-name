@@ -51,15 +51,27 @@ void quickSort(int arr[], int low, int high) {
 void merge(int arr[], int left, int middle, int right) {
     int x = middle - left + 1;
     int y = right - middle;
-    int left2[] = {};
-    int right2[] = {};
+    //std::cout << ":3\n";
+    int left2[x];
+    int right2[y];
     for (int i = 0; i < x; i++) {
         left2[i] = arr[left + i];
     }
     for (int j = 0; j < y; j++) {
         right2[j] = arr[middle + 1 + j];
     }
-    int i = 0; int j = 0; int k = left;
+
+    // std::cout << '\n';
+    // for (int b = 0; b <= x; b++) {
+    //     std::cout << left2[b] <<'\n';
+    // }
+    // std::cout << '\n';
+    // for (int c = 0; c <= y; c++) {
+    //     std::cout << right2[c] <<'\n';
+    // }
+    // std::cout << '\n';
+    
+     int i = 0; int j = 0; int k = left;
 
     while (i < x and j < y) {
         if (left2[i] <= right2[j]) {
@@ -82,4 +94,15 @@ void merge(int arr[], int left, int middle, int right) {
         j += 1;
         k += 1;
     }
+ }
+
+void mergeSort(int arr[], int left, int right) {
+    if (left >= right) {
+        return;
+    }
+
+    int middle = left + (right - left) / 2;
+   mergeSort(arr, left, middle);
+   mergeSort(arr, middle+1, right);
+   merge(arr, left, middle, right);
 }

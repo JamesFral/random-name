@@ -118,3 +118,18 @@ void insertionSort(int arr[],int size) {
         arr[j+1] = key;
     }
 }
+
+void selectionSort(int arr[], int size) {
+    for (int i = 0; i < size-1;i++){
+        int smallIndex = i;
+        for (int j = i+1; j < size;j++){
+            if(arr[j] < arr[smallIndex]) {
+                smallIndex = j;
+            }
+        }
+        // swap arr[i] with arr[smallIndex]
+        int tempData = arr[i];
+        arr[i] = arr[smallIndex];
+        arr[smallIndex] = tempData;
+    }
+}

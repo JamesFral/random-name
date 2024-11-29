@@ -5,3 +5,4 @@ void quickSort(int arr[], int low, int high);
 void merge(int arr[], int left, int middle, int right);
 void mergeSort(int arr[], int left, int right);
 void insertionSort(int arr[],int size);
+void selectionSort(int arr[], int size);

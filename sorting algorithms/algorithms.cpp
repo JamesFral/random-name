@@ -2,18 +2,21 @@
 #include <array>
 #include <iostream>
 
-void bubbleSort(int n,int arr[] ) {
+void bubbleSort(int arr[], int n) {
     bool swap = true;
+    //int swapNum = 0;
     //std::cout << "made swap var\n";
     while (swap) {
         //std::cout << ":3\n";
         swap = false;
         for (int i = 0; i < n; i++) {
-            if (arr[i] >= arr[i+1]) {
+            if (arr[i] > arr[i+1]) {
                 int tempData = arr[i+1];
                 arr[i+1] = arr[i];
                 arr[i] = tempData;
                 swap = true;
+                //swapNum += 1;
+                //std::cout << swapNum << '\n';
             }
         }
     }
@@ -49,8 +52,10 @@ void quickSort(int arr[], int low, int high) {
 }
 
 void merge(int arr[], int left, int middle, int right) {
-    int x = middle - left + 1;
-    int y = right - middle;
+    int x = 0;
+    x = middle - left + 1;
+    int y = 0;
+    y = right - middle;
     //std::cout << ":3\n";
     int left2[x];
     int right2[y];
@@ -61,17 +66,9 @@ void merge(int arr[], int left, int middle, int right) {
         right2[j] = arr[middle + 1 + j];
     }
 
-    // std::cout << '\n';
-    // for (int b = 0; b <= x; b++) {
-    //     std::cout << left2[b] <<'\n';
-    // }
-    // std::cout << '\n';
-    // for (int c = 0; c <= y; c++) {
-    //     std::cout << right2[c] <<'\n';
-    // }
-    // std::cout << '\n';
-
-     int i = 0; int j = 0; int k = left;
+    int i = 0; 
+    int j = 0; 
+    int k = left;
 
     while (i < x and j < y) {
         if (left2[i] <= right2[j]) {
@@ -82,6 +79,7 @@ void merge(int arr[], int left, int middle, int right) {
             arr[k] = right2[j];
             j += 1;
         }
+        k += 1;
     }
 
     while (i < x) {
@@ -100,8 +98,8 @@ void mergeSort(int arr[], int left, int right) {
     if (left >= right) {
         return;
     }
-
-    int middle = left + (right - left) / 2;
+    int middle = 0;
+    middle = left + (right - left) / 2;
    mergeSort(arr, left, middle);
    mergeSort(arr, middle+1, right);
    merge(arr, left, middle, right);
